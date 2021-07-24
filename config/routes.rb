@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   root to: 'tweeets#index'
   namespace :api do
-    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1), defaults: {format: 'json'} do
       resources :tweeets
     end
     scope module: :v2, constraints: ApiConstraints.new(version: 2, default: true) do

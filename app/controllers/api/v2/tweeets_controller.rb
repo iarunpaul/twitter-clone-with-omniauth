@@ -2,6 +2,7 @@ module Api
   module V2
     class TweeetsController < ApplicationController
       # respond_to :json
+      before_action :restrict_api
       def index
         @tweeets = Tweeet.includes(:user)
         render json: @tweeets
