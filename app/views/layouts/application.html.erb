@@ -49,9 +49,15 @@
             <p>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-info" %>
             </p>
+            <p class="control">
+              <%= link_to 'Edit Profile', edit_user_registration_path, class: "button is-primary" %>
+            </p>
             <% else %>
             <p class="control">
               <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
+            </p>
+            <p class="control">
+              <%= link_to 'Sign In with Twitter', user_twitter_omniauth_authorize_path, method: :post, class: "button" %>
             </p>
             <p class="control">
               <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>

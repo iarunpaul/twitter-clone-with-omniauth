@@ -24,7 +24,7 @@
                             required: true,
                             unique: true,
                             wrapper: false,
-                            input_html: { autocomplete: "username", class: 'input' },
+                            input_html: { class: 'input' },
                             label_html: { class: 'label' } %>
                 </div>
               </div>
@@ -38,25 +38,27 @@
                             label_html: { class: 'label' } %>
                 </div>
               </div>
-              <div class="field">
-                <div class="control">
-                  <%= f.input :password,
-                          required: true,
-                          wrapper: false,
-                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                          input_html: { autocomplete: "new-password", class: 'input' },
-                          label_html: { class: 'label' } %>
+              <% if f.object.password_required?  %>
+                <div class="field">
+                  <div class="control">
+                    <%= f.input :password,
+                            required: true,
+                            wrapper: false,
+                            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                            input_html: { autocomplete: "new-password", class: 'input' },
+                            label_html: { class: 'label' } %>
+                  </div>
                 </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                        <%= f.input :password_confirmation,
-                          required: true,
-                          wrapper: false,
-                          input_html: { autocomplete: "new-password", class: 'input' },
-                          label_html: { class: 'label' } %>
+                <div class="field">
+                  <div class="control">
+                          <%= f.input :password_confirmation,
+                            required: true,
+                            wrapper: false,
+                            input_html: { autocomplete: "new-password", class: 'input' },
+                            label_html: { class: 'label' } %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
               <div class="field">
                 <div class="control">
                   <%= f.button :submit, "Sign up", class: 'button is-info' %>
