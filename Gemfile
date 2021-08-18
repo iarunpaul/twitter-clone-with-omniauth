@@ -37,6 +37,9 @@ gem 'simple_form', '~> 3.5'
 gem "omniauth-twitter", "~> 1.4"
 gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'devise', '~> 4.3'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -57,8 +60,7 @@ group :development do
   gem 'better_errors', '~> 2.4'
   gem 'guard', '~> 2.14', '>= 2.14.1'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
-  gem 'gravatar_image_tag', '~> 1.2'
-  gem 'devise', '~> 4.3'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
