@@ -10,6 +10,8 @@ class User < ApplicationRecord
   validates :email, presence: true#, unless: :provider?
   validates :password, presence: true, length: {minimum: 6}, confirmation: :required, on: :create, unless: :provider?
   validates :email, uniqueness: { case_sensitive: false }, length: {maximum: 50}, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  validates :username, uniqueness: { case_sensitive: false }, length: {maximum: 15}, unless: :provider?
   validates :password, length: {minimum: 6}, confirmation: :required, allow_blank: true, on: :update#, unless: :provider?
 
 def password_required?
